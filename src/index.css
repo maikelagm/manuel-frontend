@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply w-screen h-screen overflow-hidden bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 ;
+}
+
+h1,h2,h3,h4,h5,h6, p, pre {
+  @apply text-current;
+}
+
+.spinLoader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  @apply border-4 border-transparent border-r-primary-500;
+  border-radius: 50%;
+  animation: l15 1s infinite linear;
+}
+.spinLoader::before,
+.spinLoader::after {    
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: l15 2s infinite;
+}
+.spinLoader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+@keyframes l15{ 
+  100%{transform: rotate(1turn)}
+}
+
+.infinityBarLoader {
+  @apply rounded-full overflow-hidden  w-full;
+  /* width: calc(100% / cos(45deg)); */
+  height: 12px;
+  background: repeating-linear-gradient(-45deg,#3a86a0 0 15px,#0000 0 20px) left/200% 100%;
+  animation: l3 2.7s infinite linear;
+}
+@keyframes l3 {
+    100% {background-position:right}
+}
